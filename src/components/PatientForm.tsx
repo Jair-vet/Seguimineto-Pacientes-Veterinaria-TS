@@ -1,14 +1,16 @@
 import { useForm } from "react-hook-form"
 import { Error } from "./Error"
+import { DraftPatient } from "../types"
 
 
 
 export const PatientForm = () => {
 
-    const { register, handleSubmit, formState: {errors} } = useForm()
+    const { register, handleSubmit, formState: {errors} } = useForm<DraftPatient>()
 
-    const registerPatient = () => {
-
+    const registerPatient = (data : DraftPatient) => {
+        console.log(data);
+        
     }
 
   return (
@@ -39,7 +41,7 @@ export const PatientForm = () => {
                       })}
                   />
                   {errors.name && (
-                      <Error>{errors.name?.message?.toString()}</Error>
+                      <Error>{errors.name?.message}</Error>
                   )}
               </div>
 
@@ -56,8 +58,8 @@ export const PatientForm = () => {
                         required: 'El Propietario es obligatorio'
                       })}
                   />
-                  {errors.name && (
-                      <Error>{errors.caretaker?.message?.toString()}</Error>
+                  {errors.caretaker && (
+                      <Error>{errors.caretaker?.message}</Error>
                   )}
               </div>
 
@@ -78,8 +80,8 @@ export const PatientForm = () => {
                     }
                   })}
               />
-              {errors.name && (
-                  <Error>{errors.email?.message?.toString()}</Error>
+              {errors.email && (
+                  <Error>{errors.email?.message}</Error>
               )}
             </div>
 
@@ -95,8 +97,8 @@ export const PatientForm = () => {
                         required: 'La fecha es obligatoria'
                       })}
                 />
-                {errors.name && (
-                    <Error>{errors.date?.message?.toString()}</Error>
+                {errors.date && (
+                    <Error>{errors.date?.message}</Error>
                 )}
             </div>
             
@@ -113,8 +115,8 @@ export const PatientForm = () => {
                       })}
 
                 ></textarea>
-                {errors.name && (
-                    <Error>{errors.symptoms?.message?.toString()}</Error>
+                {errors.symptoms && (
+                    <Error>{errors.symptoms?.message}</Error>
                 )} 
             </div>
 
