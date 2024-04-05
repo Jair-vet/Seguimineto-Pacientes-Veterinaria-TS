@@ -9,7 +9,7 @@ type PatientDetailsProps = {
 
 export const PatientDetail = ({patient} : PatientDetailsProps) => {
 
-    const {deletePatient} = usePatientStore()
+    const { deletePatient, getPatientId } = usePatientStore()
 
   return (
     <div className="mx-5 my-10 py-10 bg-white shadow-md rounded-xl">
@@ -23,7 +23,8 @@ export const PatientDetail = ({patient} : PatientDetailsProps) => {
         </div>
         <div className="flex justify-between mt-2 mx-3 gap-3">
             <button className=" w-full p-2 text-center duration-300 bg-emerald-700 hover:bg-emerald-800 text-white font-bold uppercase rounded-lg"
-                >Editar
+                onClick={() => getPatientId(patient.id)}    
+            >Editar
             </button>
             <button className=" w-full p-2 text-center duration-300 bg-red-700 hover:bg-red-800 text-white font-bold uppercase rounded-lg"
                 onClick={() => deletePatient(patient.id)}    
