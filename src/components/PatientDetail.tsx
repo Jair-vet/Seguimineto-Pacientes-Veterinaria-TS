@@ -15,7 +15,8 @@ export const PatientDetail = ({patient} : PatientDetailsProps) => {
     <div className="mx-5 my-10 py-10 bg-white shadow-md rounded-xl">
         <div className="ml-10">
             <PatientDetailItem label="ID" data={patient.id}/>
-            <PatientDetailItem label="Nombre" data={patient.name}/>
+            <PatientDetailItem label="Paciente" data={patient.name}/>
+            <PatientDetailItem label="Dueño" data={patient.caretaker}/>
             <PatientDetailItem label="Email" data={patient.email}/>
             <PatientDetailItem label="Fecha" data={patient.date.toString()}/>
             <PatientDetailItem label="Sintomas" data={patient.symptoms}/>
